@@ -1,0 +1,37 @@
+scalar JSON
+
+type Query {
+  record(id: ID!): Record
+  records: [Record]
+}
+
+type Mutation {
+  createRecord(
+    id: ID
+    username: String
+    password: String
+    email: String
+    phoneNumber: String
+    role: String
+    permissions: String!
+    firstName: String
+    lastName: String
+    address: String
+  ): Record
+  deleteRecord(id: ID!): Boolean
+  updateRecord(id: ID!, name: String, position: String, level: String): Record
+}
+
+type Record {
+  id: ID
+  username: String
+  password: String
+  email: String
+  phoneNumber: String
+  role: String
+  firstName: String
+  lastName: String
+  address: String
+  permissions: JSON!
+  data: JSON!
+}
